@@ -1,2 +1,6 @@
-source 'https://rubygems.org'
+source :rubygems
+
+gem 'heroku'
 gem 'sinatra'
+gem 'haml'
+gem 'thin'
