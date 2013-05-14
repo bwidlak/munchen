@@ -1,0 +1,360 @@
+!!! 5
+%html
+	%head
+		%title= "Bartek going to München"
+		%meta{ :name => "application-name", :content => "Grip" }
+		%meta{ :name => "viewport", :content => "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" }
+
+		%link{ :rel => "stylesheet", :href => "/css/images.css", :media => "only screen and (-webkit-min-device-pixel-ratio:1)" }
+		%link{ :rel => "stylesheet", :href => "/css/images-x2.css", :media => "only screen and (-webkit-min-device-pixel-ratio:2)" }
+
+		%link{ :href => "/css/bootstrap.css", :media => "screen", :rel => "stylesheet" }
+		%link{ :href => "/css/main.css", :rel => "stylesheet"}
+		%link{ :href => "/css/type.css", :rel => "stylesheet"}
+		%link{ :href => "/css/slider.css", :rel => "stylesheet"}
+
+		%link{ :href => "/css/nav.css", :rel => "stylesheet"}
+		%link{ :href => "/css/font.css", :rel => "stylesheet"}
+
+		%script{ :src => "/js/jquery-1.9.1.min.js", :type => "text/javascript"}
+		%script{ :src => "/js/jquery-ui.custom.min.js", :type => "text/javascript"}
+		%script{ :src => "/js/modernizr.js", :type => "text/javascript"}
+		%script{ :src => "/js/bootstrap.js", :type => "text/javascript"}
+
+		%script{ :src => "/js/munchen.js", :type => "text/javascript"}
+		%script{ :src => "/js/jquery.hammer.js", :type => "text/javascript"}
+
+
+	%body{ "data-spy" => "scroll", "data-target" => "#navbar"}
+
+		#navbar
+			%nav.fixed
+				%ul.nav
+					%li
+						%a{ :href => "#chapter1" }
+							%div
+								%span= "Ahoy!"
+					%li
+						%a{ :href => "#chapter2" }
+							%div
+								%span= "München"
+					%li
+						%a{ :href => "#chapter3" }
+							%div
+								%span= "Design"
+					%li
+						%a{ :href => "#chapter4" }
+							%div
+								%span= "Code"
+					%li
+						%a{ :href => "#chapter5" }
+							%div
+								%span= "Experience"
+
+		%section#chapter1.orange.lower
+			.container
+				.row
+					.span12
+						.browser-frame
+							.top-bar
+								.circles
+									.circle
+									.circle
+									.circle
+								.address-bar
+							.content
+								.row-fluid
+									.container-fluid
+										.span12.pagination-centered
+											%h1
+												%span.white-on-orange
+													I DESIGN
+												&
+												%span.white-on-orange
+													BUILD web and mobile apps
+								.row-fluid
+									.container-fluid.pagination-centered
+										.span6
+											%h2 
+												I'm Bartek, currently living in
+											%div
+												%img{ :src => '/images/img-london.png'}
+											%h2
+												%span.white-on-orange
+													LONDON,
+												%br
+												working as senior
+												%span.bold
+													developer & designer,
+
+										.span6.pagination-centered
+											%h2
+												but I'm relocating to
+											%div
+												%img{ :src => '/images/img-munchen	.png'}
+											%h2 
+												%span.white-on-orange
+													MÜNCHEN.
+												%br/
+												I'm looking for oportunity to work for company there.
+					
+
+		%section#chapter2.turquoise.resize.position-middle
+			.container
+				.row
+					.span7.offset5.position
+						%h1
+							Bartek going to
+							%span.orange-on-turquoise
+								München
+						%h2 After working for companies in central Europe I decided to move to London pushed by the need of new experiences, challanges and to build a career.
+						%h2 I'm Currently working as a senior developer at LINE Communications.
+
+		%section#chapter3.yellow.lower
+			.container
+				.row
+					.span12
+						%h1 Mockup first!
+						%h2 First wireframes. Than design.
+						%p Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+				.row
+
+					.span3
+						%h1 Than sharp design!
+						%h2 First wireframes. Than design.
+						%p Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+
+					.span9.tap
+						%img{ :src => "/images/single-tap.png", :alt => ""}
+
+					#before-after-slider.side-by-side.span9
+						#slider.left.animate
+							%div.mask
+								%img{ :src => "/images/kiscard-wireframe-870.jpg", :alt => "" }
+							%span.left-label Wireframe
+							%span.right-label Design
+						%img.right{ :src => "/images/kiscard-design-870.jpg", :alt => "" }
+					:javascript
+
+						var prevent_scroll_drag = true;
+
+						function logEvent(ev) {
+							if(!ev.gesture) {
+								return;
+							}
+							var offset = $('#before-after-slider').offset();
+							var value = ev.gesture['center'];
+
+							value = value.pageX - offset.left;
+							value = value * 100 / $('#before-after-slider > img').width()
+
+							if (value > 100) {
+								value = 100
+							}
+							$('#slider').width("" + value + "%");
+						}
+
+						var all_events = ['touch','release','hold','tap','dragstart','drag','dragend','dragleft','dragright','swipe'];
+
+						var hammertime = Hammer($('#before-after-slider'), {
+								prevent_default: true,
+								no_mouseevents: false,
+								prevent_default: true
+							}).on(all_events.join(" "), logEvent);
+
+		%section#chapter4.gray.lower
+			.container
+				.row
+					.span12
+						%h1 Backend, ooooh yeah!!!
+						%h2 Lots of developers strugling to write the CSS. I acctually love it. I easily write clean stylesheets. That might be object oriented, with a little help of compass, or pure CSS with quite good support for IE browsers.
+					.span10.offset1							
+						.editor
+							.top_bar
+								_button.sass
+							.content
+								.tab
+									:erb
+										require 'uri'<br/>
+
+										class User < ActiveRecord::Base<br/>
+									.tab
+										:erb
+											named_scope :not_deleted, :conditions => [ "users.deleted_at is null" ]<br/>
+											enum_attr :title, %w(Mr Mrs Miss Ms Dr Prof)<br/>
+											include Authentication<br/>
+
+				.row
+					.span12
+						%h1 But you might ask 'what about the CSS'?
+						%h2 Lots of developers strugling to write the CSS. I acctually love it. I easily write clean stylesheets. That might be object oriented, with a little help of compass, or pure CSS with quite good support for IE browsers.
+					.span10.offset1
+						.editor
+							.top_bar
+								_button.sass
+							.content
+								.tab
+									:erb
+										<span class="def">=fancy_button(<span class="dollar_value">$radius</span>: 9px, <span class="dollar_value">$color_start</span>: rgb(243, 243, 243), <span class="dollar_value">$color_stop</span>: rgb(233, 233, 233), <span class="dollar_value">$text_on_button</span>: <span class="attribute">inset</span>, $size: <span class="attribute">normal</span>, <span class="dollar_value">$disabled</span>: false)</span>
+									.tab
+										:erb
+											<span class="attribute">border</span>: <span class="attribute">none</span><br/>
+											+border-radius(<span class="dollar_value">$radius</span>)<br/>
+											<span class="attribute">font-weight</span>: <span class="attribute">bold</span><br/>
+											<span class="attribute">padding</span>: 7px 18px 6px 18px<br/>
+											<span class="attribute">background-color</span>: <span class="dollar_value">$color_stop</span><br/>
+											+linear-gradient(color-stops(<span class="dollar_value">$color_start</span>, <span class="dollar_value">$color_stop</span>))<br/>
+											<span class="attribute">border-top</span>: 1px solid <span class="dollar_value">$color_start</span> - rgb(41, 41, 41)<br/>
+											<span class="attribute">border-left</span>: 1px solid <span class="dollar_value">$color_start</span> - rgb(51, 51, 51)<br/>
+											<span class="attribute">border-right</span>: 1px solid <span class="dollar_value">$color_start</span> - rgb(51, 51, 51)<br/>
+											<span class="attribute">border-bottom</span>: 1px solid <span class="dollar_value">$color_stop</span> - rgb(50, 50, 50)<br/>
+											+box-shadow([0 1px 0 0 $color_start + rgb(15, 15, 15) inset], [0 2px 2px 0px #d8d8d8])<br/>
+											<span class="attribute">font</span>:<br/>
+										.tab
+											:erb
+												<span class="attribute">size</span>: 1.8em<br/>
+										:erb
+											<span class="attribute">cursor</span>: pointer<br/>
+											@if <span class="dollar_value">$size</span> == big<br/>
+										.tab
+											:erb
+												<span class="attribute">font-size</span>: 18px<br/>
+										:erb
+											@else<br/>
+										.tab
+											:erb
+												@if <span class="dollar_value">$size</span> == huge<br/>
+											.tab
+												:erb
+													<span class="attribute">padding<span>: 15px 60px<br/>
+													<span class="attribute">font-size</span>: 20px<br/>
+											:erb
+												@else<br/>
+											.tab
+												:erb
+													@if <span class="dollar_value">$size</span> == bigger<br/>
+												.tab
+													:erb
+														<span class="attribute">font-size</span>: 20px<br/>
+														<span class="attribute">padding</span>: 10px 30px<br/>
+												:erb
+													@else
+													.tab
+													:erb
+														<span class="attribute">font-size</span>: 13px<br/>
+														<span class="attribute">font-weight</span>: normal<br/>
+										:erb
+											@if $text_on_button == outset<br/>
+										.tab
+											:erb
+												<span class="attribute">color</span>: white<br/>
+												+text-shadow( rgba(0,0,0, 0.6), 0px, 1px, 0px)<br/>
+										:erb
+											@else<br/>
+										.tab
+											:erb
+												<span class="attribute">color</span>: #2c2527<br/>
+												+text-shadow( rgba(255,255,255, 0.6), 0px, 1px, 0px)<br/>
+										:erb
+											<span class="attribute">text-decoration</span>: none<br/>
+											&:hover<br/>
+										.tab
+											:erb
+												+linear-gradient(color-stops(<span class="dollar_value">$color_start</span>, <span class="dollar_value">$color_start</span>))<br/>
+												<span class="attribute">background</span>:<br/>
+											.tab
+												:erb
+													<span class="attribute">color</span>: <span class="dollar_value">$color_start</span><br/>
+										:erb
+											@if <span class="dollar_value">$disabled</span> == true
+										.tab
+											:erb
+												<span class="attribute">border</span>:<br/>
+											.tab
+												:erb
+													<span class="attribute">top</span>: 1px solid <span class="dollar_value">$color_start</span><br/>
+													<span class="attribute">left</span>: 1px solid <span class="dollar_value">$color_start</span><br/>
+													<span class="attribute">right</span>: 1px solid $color_start<br/>
+													<span class="attribute">bottom</span>: 1px solid $color_stop<br/>
+											:erb
+												-moz-box-shadow: 0 1px 0 0 $color_start + rgb(5, 5, 5) inset<br/>
+												-webkit-box-shadow: 0 1px 0 0 $color_start + rgb(5, 5, 5) inset<br/>
+												box-shadow: 0 1px 0 0 $color_start + rgb(5, 5, 5) inset<br/>
+												-khtml-box-shadow: 0 1px 0 0 $color_start + rgb(5, 5, 5) inset<br/>
+												+text-shadow(#D2D4D5, 0px, 1px, 0px)<br/>
+												<span class="attribute">color</span>: #fff<br/>
+												<span class="attribute">cursor</span>: not-allowed<br/>
+												&:hover<br/>
+											.tab
+												:erb
+													+linear-gradient(color-stops($color_start, $color_stop))<br/>
+
+		%section#chapter5.gray.lower
+			.container
+				.row
+					.span12.pagination-centered
+						%img{ :src => '/images/face.png'}
+						%p
+							That's me!
+				.row
+					.span12.pagination-centered
+						%h1 I will use my experience to design yours.
+						%h2 So far I've helped organisations radically improve their websites and create exciting new digital products. I combine a unique lean approach with our knowledge of human behaviour and the principles of user-centred design.
+				.row
+					.span3
+						%h2 What I believe
+						%p Experience is everything.
+						%p You’ll work directly with world-leading UX consultants. We won’t fob you off with junior designers or layers of account management.
+					.span3
+						%h2 Communication over reports.
+						%p Our streamlined approach of ‘pictures and conversations’ keeps developers happy and helps your budget go a long way.
+					.span3
+						%h2 Analyse and iterate to improve.
+						%p We’ll use feedback loops to incrementally improve designs and occasionally to adjust the course of an entire project.
+					.span3
+						%h2 Beauty is not skin deep.
+						%p We design delightful interfaces. This isn’t style over substance – every design decision improves the experience for your customers.
+
+		%section#chapter6.dark-gray.lower
+			.container
+				.row
+					.span12
+						%p Projects for:
+				.row
+					
+					.span3.pagination-centered
+						.logo
+							%img{ :src => '/images/logos/logo-jaguar-landrover.png' }
+					.span3.pagination-centered
+						.logo
+							%img{ :src => '/images/logos/logo-gsk.png' }
+					.span3.pagination-centered
+						.logo
+							%img{ :src => '/images/logos/logo-tetrapak.png' }
+					.span3.pagination-centered
+						.logo					
+							%img{ :src => '/images/logos/logo-syngenta.png' }
+					.span3.pagination-centered
+						.logo					
+							%img{ :src => '/images/logos/logo-jobmensa.png' }
+					.span3.pagination-centered
+						.logo
+							%img{ :src => '/images/logos/logo-payango.png' }
+					.span3.pagination-centered
+						.logo					
+							%img{ :src => '/images/logos/logo-vattenfall.png' }
+					.span3.pagination-centered
+						.logo					
+							%img{ :src => '/images/logos/logo-vattenfall.png' }
+				.row
+					%span12
+						%p Agencies & House software development that I worked for:
+				.row
+					.span3.pagination-centered
+						%img{ :src => '/images/logos/logo-line.png' }
+					.span3.pagination-centered
+						%img{ :src => '/images/logos/logo-railslove.png' }
+					.span3.pagination-centered	
+						%img{ :src => '/images/logos/logo-object-reload.png' }
+					.span3.pagination-centered	
+						%img{ :src => '/images/logos/logo-akra.png' }

@@ -1,0 +1,79 @@
+body {
+	font: 16px/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	font-size: 48px;
+	line-height: 1.3em;
+}
+
+h2 {
+	line-height: 1.4em;
+	letter-spacing: -1px;
+	font-size: 26px;
+}
+
+h3 {
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+p {
+
+}
+
+/* Colors */
+
+.blue {
+	text-shadow: rgba(0,80,200,0.8) 1px 1px 1px;
+	color: white;
+	color: rgba(255,255,255,0.6);
+}
+
+.blue span.bold{
+	color: rgba(255,255,255,1);
+}
+
+#header { text-shadow: none ;}
+#header .class { opacity: 0.4; text-indent: -60px;}
+
+.orange { background-color: #495154; color: #6d4739;}
+.orange h1 {  }
+.orange h2 {  }
+.orange p {  }
+.orange .white-on-orange { color: #ffffff; }
+
+.turquoise { background-color: #60d7c1; }
+.turquoise .orange-on-turquoise { color: #ef7b62; }
+
+.yellow { background: #f6d56e; color: #fff; }
+.yellow h1 { color: #fff; }
+.yellow h2 { color: #9c7c19; }
+.yellow p { color: #9c7c19; }
+
+.gray { background-color: #dedcd8; color: #495154; }
+
+.dark-gray { background-color: #a9a496; }
+.gray { background-color: #aeaa9f; }
+
+/* Editor */
+
+.editor {
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.editor .def {
+	font-weight: bold;
+}
+
+.editor .dollar_value {
+	color: #ff9000;
+	font-style: italic;
+}
+
+.editor .attribute {
+	color: #17def2;
+}

@@ -1,0 +1,89 @@
+#navbar nav.fixed {
+	position: fixed;
+	left: 20px;
+	top: 200px;
+	z-index: 9999;
+}
+
+#navbar nav.fixed ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding: 30px 12px 10px 12px;
+	display: block;
+}
+
+#navbar nav.fixed ul li a {
+	display: block;
+	background: #f3f3f3;
+	border: 3px #f3f3f3 solid;
+
+	padding: 0;
+
+	-webkit-border-radius: 18px;
+	   -moz-border-radius: 18px;
+	 		border-radius: 18px;
+
+	width: 10px;
+	height: 10px;
+	margin-bottom: 20px;
+	position: relative;
+	text-decoration: none
+}
+
+#navbar nav.fixed ul li.active a, nav.fixed ul li a:hover {
+	cursor: pointer;
+	background: transparent !important;
+}
+
+#navbar nav.fixed ul li.active a:focus {
+	outline: none;
+}
+
+#navbar nav.fixed ul li a div {
+	display: none;
+	top: -6px;
+	padding-left:30px;
+	position: absolute;
+}
+
+#navbar nav.fixed ul li a:hover div, #navbar nav.fixed ul li.active a div {
+	display: block;
+}
+
+#navbar nav.fixed ul li a div span {
+  	opacity: 0;
+  	white-space: nowrap;
+}
+
+
+#navbar nav.fixed ul li.active a div span, #navbar nav.fixed ul li a:hover div span {;
+	opacity: 1;
+	-webkit-transition: opacity .5s ease-in-out;
+	   -moz-transition: opacity .5s ease-in-out;
+	     -o-transition: opacity .5s ease-in-out;
+			transition: opacity .5s ease-in-out;
+	border-radius: 20px;
+	background: rgba(0,0,0,0.2);
+	padding: 5px 15px;
+	text-transform: uppercase;
+	color: white;
+}
+
+/* Landscape phones and down */
+@media (max-width: 767px) {
+	#navbar nav.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 70px;
+		height: 70px;
+		background: white;
+	}
+
+	#navbar nav.fixed ul {
+		display: none;
+	}
+
+}
