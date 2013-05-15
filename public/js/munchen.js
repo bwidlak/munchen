@@ -51,6 +51,10 @@ mainBone.prototype.resize = function() {
 		$(this).css('height',h);
 	});
 
+	$( "section.min-resize" ).each(function( index ) {
+		$(this).css('min-height',h);
+	});
+
 	// $.scrollTo($(newhash+'cont').position().top,0);
 };
 
