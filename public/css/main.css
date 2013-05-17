@@ -166,6 +166,7 @@ nav {
 	overflow:scroll;
 	width: 100%;
 	background: #262822;
+	overflow-y: hidden;
 }
 
 .editor .tab {
