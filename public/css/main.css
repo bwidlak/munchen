@@ -227,3 +227,17 @@ nav {
 .lower .row {
 	padding-top: 60px;
 }
+
+.logo {
+	background-color: #a9a496;
+	height: 150px;
+	margin-bottom: 10px;
+	display: block;
+	line-height: 150px;
+	text-align: center;
+	padding: 0 10px;
+}
+
+.container > img {
+  vertical-align: middle;
+}
