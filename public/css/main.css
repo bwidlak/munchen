@@ -229,7 +229,7 @@ nav {
 }
 
 .logo {
-	background-color: #a9a496;
+	border: 1px solid #9b9b9b;
 	height: 150px;
 	margin-bottom: 10px;
 	display: block;
@@ -240,4 +240,15 @@ nav {
 
 .container > img {
   vertical-align: middle;
+}
+
+.four-things {
+	font-family: 'LatoLight';
+	font-size: 24pt;
+	line-height: 36pt;
+}
+
+.four-things span {
+	border-bottom: 1px dotted #495154;
+	font-family: 'MerriweatherBold';	
 }
