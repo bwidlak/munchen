@@ -31,7 +31,9 @@
  
 /* Landscape phones and down */
 @media (max-width: 480px) {
-
+	section {
+		padding: 20px;
+	}
 }
 
 body {
@@ -186,7 +188,6 @@ nav {
 	border: 7px solid #f7927d;
 	background: #f67d63;
 	background: rgba(246,125,99,0.9);
-	margin: 50px 0;
 }
 
 .browser-frame .top-bar {
@@ -246,9 +247,64 @@ nav {
 	font-family: 'LatoLight';
 	font-size: 24pt;
 	line-height: 36pt;
+	font-weight: bold;
 }
 
 .four-things span {
 	border-bottom: 1px dotted #495154;
 	font-family: 'MerriweatherBold';	
+}
+
+
+
+
+
+/*BACKGROUNDS*/
+
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 980px) and (max-width: 1199px) {
+
+}
+
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	h1 {}
+	h2 {}
+	h3 {}
+	p {}
+	#chapter1 h1 span.first-line {
+		font-size: 58pt;
+	}
+	#chapter1 h1 span.second-line {
+		font-size: 40pt;
+	}
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+}
+
+@media (max-width: 320px) {
+	#chapter1 {
+		background-color:#f47c63;
+		background-position: 50% 50%;
+	}
+	#chapter2 {
+		background-color:#60d7c1;
+		background-image: url(/images/bg-munchen.jpg);
+		background-attachment: scroll;
+		background-repeat: repeat-y;
+		background-position: -465px -320px;
+	}
 }

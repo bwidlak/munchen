@@ -69,3 +69,10 @@
 	text-transform: uppercase;
 	color: white;
 }
+
+/* Landscape phones and down */
+@media (max-width: 767px) {
+	#navbar {
+		display: none;
+	}
+}

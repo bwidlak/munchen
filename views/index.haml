@@ -65,13 +65,13 @@
 							.content
 								.row-fluid
 									.container-fluid
-										.span12.pagination-centered{:style => "margin-top:50px"}
+										.span12.pagination-centered
 											%h1
-												%span.white-on-orange{:style => 'font-size: 82pt;'}
-													I design & build
-											%h1	
-												%span.white-on-orange{:style => 'font-size: 60pt;'}
-													web and mobile apps
+												%span.white-on-orange
+													%span.first-line
+														I design & build
+													%span.second-line
+														web and mobile apps
 
 								.row-fluid
 									.container-fluid.pagination-centered
@@ -80,7 +80,7 @@
 												I'm Bartek, currently living in
 											%div
 												%img{ :src => '/images/img-london.png'}
-											%h1
+											%h2.city
 												%span.white-on-orange
 													LONDON,
 											%h2
@@ -93,7 +93,7 @@
 												but I'm relocating to
 											%div
 												%img{ :src => '/images/img-munchen.png'}
-											%h1 
+											%h2.city 
 												%span.white-on-orange
 													MÜNCHEN.
 											%h2
@@ -105,7 +105,9 @@
 				.row
 					.span8.offset4.position
 						%h1
-							Why Bartek is going to
+							Why Bartek is going
+							%br/
+							to
 							%span.orange-on-turquoise
 								Munich?
 						%h2 I moved to London led by the need of a new experience to build my career. While working here for 2.5 years as senior developer, on challenging projects for world leading companies I've decided to move back to central Europe.

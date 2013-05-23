@@ -9,18 +9,21 @@ $(window).scroll(function () {
  });
 
 $(window).resize(function(){
-	mBone.resize()
+	if ((!navigator.userAgent.match(/iPhone/i)) && (!navigator.userAgent.match(/iPod/i))) {
+		mBone.resize()
+		mBone.setInTheMiddle();
+	}
 	mBone.resizeSlidedImage();
-	mBone.setInTheMiddle();
 });
 
 // On Document Ready
 $(document).ready(function() {
-	
 	mBone = new mainBone();
-	mBone.resize();
+	if ((!navigator.userAgent.match(/iPhone/i)) && (!navigator.userAgent.match(/iPod/i))) {
+		mBone.resize()
+		mBone.setInTheMiddle();
+	}
 	mBone.resizeSlidedImage();
-	mBone.setInTheMiddle();
 });
 
 // hash_changed	= function() {
