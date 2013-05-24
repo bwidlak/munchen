@@ -259,6 +259,20 @@ p {
 .gray { background-color: #dedcd8; color: #495154; }
 
 .dark-gray { background-color: #a9a496; }
+
+.dark-gray .four-things {
+	line-height: 1.3em;
+	letter-spacing: -1px;
+	font-size: 48px;
+	font-family: 'LatoLight';
+	text-rendering: optimizelegibility;
+}
+
+.dark-gray .four-things span {
+	font-family: 'MerriweatherRegular';
+		font-weight: bold;
+}
+
 .gray { background-color: #aeaa9f; }
 
 /* Editor */

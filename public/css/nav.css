@@ -1,13 +1,14 @@
 #navbar nav.fixed {
 	position: fixed;
 	left: 20px;
-	top: 200px;
+	top: 50%;
 	z-index: 9999;
+	height: 220px;
 }
 
 #navbar nav.fixed ul {
 	list-style-type: none;
-	margin: 0;
+	margin: -110px 0 0 0;
 	padding: 0;
 	padding: 30px 12px 10px 12px;
 	display: block;
@@ -66,8 +67,8 @@
 	border-radius: 20px;
 	background: rgba(0,0,0,0.2);
 	padding: 5px 15px;
-	text-transform: uppercase;
 	color: white;
+  	font-family: 'MerriweatherRegular';
 }
 
 /* Landscape phones and down */
