@@ -5,6 +5,7 @@
 /* Large desktop */
 @media (min-width: 1200px) {
 	section {
+		padding-top: 50px;
 		min-height: 500px;
 	}
 }
@@ -12,22 +13,25 @@
 /* Portrait tablet to landscape and desktop */
 
 
-@media (max-width: 979px) {
+@media (min-width: 980px) and (max-width: 1199px) {
 	section {
-		padding: 0 20px;
-	}
+		padding-top: 50px;
+	}	
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
 	section {
+		padding-top: 50px;
 		min-height: 700px;
 	}
 }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
+	section {
+		padding: 20px;
 	}
+}
  
 /* Landscape phones and down */
 @media (max-width: 480px) {
@@ -243,11 +247,12 @@ nav {
   vertical-align: middle;
 }
 
+.adjust { text-align: center;}
+
 /*BACKGROUNDS*/
 
 
 @media (min-width: 1200px) {
-
 }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -271,7 +276,8 @@ nav {
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
-
+	#chapter2 { background-position: -400px 0px; }
+	.adjust { text-align: left;}
 }
  
 /* Landscape phones and down */
@@ -291,4 +297,6 @@ nav {
 		background-repeat: repeat-y;
 		background-position: -465px -320px;
 	}
+
+	.adjust { text-align: left;}
 }

@@ -212,6 +212,8 @@ h3 {
 
 p {
 	font-family: 'LatoRegular';
+	font-size: 18px;
+	line-height: 1.5em;
 }
 
 .first-line {
@@ -252,7 +254,7 @@ p {
 .turquoise .orange-on-turquoise { color: #ef7b62; text-shadow: 0px 2px #d04629;}
 
 .yellow { background: #f6d56e; color: #fff; }
-.yellow h1 { color: #fff; }
+.yellow h1 { color: #fff; text-shadow: 0px 2px #9c7c19;}
 .yellow h2 { color: #9c7c19; }
 .yellow p { color: #9c7c19; }
 
@@ -270,7 +272,7 @@ p {
 
 .dark-gray .four-things span {
 	font-family: 'MerriweatherRegular';
-		font-weight: bold;
+	font-weight: bold;
 }
 
 .gray { background-color: #aeaa9f; }
@@ -322,11 +324,9 @@ p {
 	}
 }
 
- 
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
-	h1 {}
-	h2 {}
+@media (max-width: 979px) {
+	h1 { font-size: 42px; }
+	h2 { font-size: 32px; font-weight: normal;}
 	h3 {}
 	p {}
 	#chapter1 h1 span.first-line {
@@ -335,6 +335,21 @@ p {
 	#chapter1 h1 span.second-line {
 		font-size: 40pt;
 	}
+	.dark-gray .four-things { font-size: 38px; }
+}
+
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	h1 { font-size: 42px; }
+	h2 { font-size: 32px; font-weight: normal;}
+	h3 {}
+	p {}
+	#chapter1 h1 span.first-line { font-size: 58pt; line-height: 60pt; }
+	#chapter1 h1 span.second-line { font-size: 40pt; }
+	#chapter1 h2 { font-size: 26px; }
+	#chapter1 h2.city { font-size: 40px; }
+	.dark-gray .four-things { font-size: 38px; }
 }
  
 /* Landscape phone to portrait tablet */
@@ -344,10 +359,10 @@ p {
 	h3 {}
 	p {}
 	#chapter1 h1 span.first-line {
-		font-size: 46pt;
+		font-size: 46pt; line-height: 57pt;
 	}
 	#chapter1 h1 span.second-line {
-		font-size: 27pt;
+		font-size: 38pt;
 	}
 }
  
@@ -368,31 +383,22 @@ p {
 	p {
 		
 	}
-	#chapter1 h1 span.first-line {
-		font-size: 58pt;
-		line-height: 57pt;
-	}
-	#chapter1 h1 span.second-line {
-		font-size: 47pt;
-	}
+	#chapter1 h1 span.first-line { font-size: 58pt; line-height: 57pt; }
+	#chapter1 h1 span.second-line { font-size: 47pt; }
 }
 
 @media (max-width: 320px) {
-	h1 {}
-	h2 {}
+	h1 { font-size: 36px; }
+	h2 { font-size: 26px; font-weight: normal; }
 	h3 {}
 	p {}
-	#chapter1 h1 span.first-line {
-		font-size: 38pt;
-		line-height: 39pt;
-	}
-	#chapter1 h1 span.second-line {
-		font-size: 32pt;
-		line-height: 39pt;
-	}
-	.city {
-		font-size:30pt;
-	}
 
+	#chapter1 h1 span.first-line { font-size: 38pt; line-height: 39pt; }
+	#chapter1 h1 span.second-line { font-size: 32pt; line-height: 39pt; }
+	.city { font-size:30pt; }
 	.orange .white-on-orange { color: #ffffff; text-shadow: 0px 3px #dd5e45;}
+
+	/*Dark gray*/
+	.dark-gray .four-things { font-size: 26px; }
+
 }
