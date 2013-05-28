@@ -27,29 +27,35 @@
 
 	%body{ "data-spy" => "scroll", "data-target" => "#navbar"}
 
+		#language
+			%a{ :href => '?locale=en'}
+				eng
+			|
+			%a{ :href => '?locale=de'}
+				de
 		#navbar
 			%nav.fixed
 				%ul.nav
 					%li
 						%a{ :href => "#chapter1" }
 							%div
-								%span= "Ahoy!"
+								%span= t(:'navigation.menu.item1')
 					%li
 						%a{ :href => "#chapter2" }
 							%div
-								%span= "München"
+								%span= t(:'navigation.menu.item2')
 					%li
 						%a{ :href => "#chapter3" }
 							%div
-								%span= "Design"
+								%span= t(:'navigation.menu.item3')
 					%li
 						%a{ :href => "#chapter4" }
 							%div
-								%span= "Code"
+								%span= t(:'navigation.menu.item4')
 					%li
 						%a{ :href => "#chapter5" }
 							%div
-								%span= "Experience"
+								%span= t(:'navigation.menu.item5')
 
 		%section#chapter1.orange.min-resize
 			.container
@@ -67,11 +73,7 @@
 									.container-fluid
 										.span12.pagination-centered
 											%h1
-												%span.white-on-orange
-													%span.first-line
-														I design & build
-													%span.second-line
-														web and mobile apps
+												%span.white-on-orange=t(:'chapter1.title')
 
 								.row-fluid
 									.container-fluid.pagination-centered
@@ -104,14 +106,8 @@
 			.container
 				.row
 					.span8.offset4.position
-						%h1
-							Why Bartek is going
-							%br/
-							to
-							%span.orange-on-turquoise
-								Munich?
-						%h2 I moved to London led by the need of a new experience to build my career. While working here for 2.5 years as senior developer, on challenging projects for world leading companies I've decided to move back to central Europe.
-						%h2 Munich - the place that is closer to things that I love and I'm missing: skiing, mountain biking and good weather!.
+						%h1= t(:'chapter2.title')
+						%h2= t(:'chapter2.header2')
 
 		%section#chapter3.yellow
 			.container
@@ -313,7 +309,7 @@
 								experience is everything.
 				.row
 					.span12.pagination-centered
-						%img{ :src => '/images/face.png'}
+						%img{ :src => '/images/face-x2.gif', :width => '116', :height => '116', :alt => 'Thats me!'}
 						%p
 							That's me!
 				.row
@@ -326,7 +322,7 @@
 				.row-fluid
 					.span4
 						.logo
-							%img{ :src => '/images/logos/logo-bbc-academy.png', :alt => "BBC Academy" }			
+							%img{ :src => '/images/logos/logo-bbc-academy.png', :alt => "BBC Academy", :witdh => '125', :height => '85' }			
 					.span4
 						.logo
 							%img{ :src => '/images/logos/logo-jaguar-landrover.png', :alt => "Jaguar LAND ROVER" }

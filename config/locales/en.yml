@@ -1,3 +1,13 @@
 en:
-	chapter1:
-		slogan: "AAA"
+    navigation:
+        menu:
+            item1: "Ahoy!"
+            item2: "Munich"
+            item3: "Design"
+            item4: "Code"
+            item5: "Experience"
+    chapter1:
+        title: "<span class='first-line'>I design & build</span><span class='second-line'>web and mobile apps</span>"
+    chapter2:
+        title: "Why <span class='orange-on-turquoise'>Munich?</span>"
+        header2: "I moved to London led by the need of a new experience to build my career. While working here for 2.5 years as senior developer, on challenging projects for world leading companies I've decided to move back to central Europe. <br/><br/> Munich - the place that is closer to things that I love and I`m missing: skiing, mountain biking and good weather!"
