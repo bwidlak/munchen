@@ -1,4 +1,43 @@
 de:
     chapter2:
-        title: "Warum <span class='orange-on-turquoise'>München?</span>"
-        header2: "Vor 3 Jahren hat mich eine Internazionale firma in London als senior developer im softwarebereich eingestellt. Auf Internazionalen Ebene habe ich für führende Weltfirmen an Ansprochvollen Projekten gearbeited.<br/><br/>Aus persönichlen Gründen werde ich nun nach München ziehen. Auch wegen der ski-möglichkeiten des mountainbikings und des schönen wetters!"
+        munich:
+            title: "Warum <span class='orange-on-turquoise'>München?</span>"
+            header2: "Vor 3 Jahren hat mich eine Internazionale firma in London als senior developer im softwarebereich eingestellt. Auf Internazionalen Ebene habe ich für führende Weltfirmen an Ansprochvollen Projekten gearbeited.<br/><br/>Aus persönichlen Gründen werde ich nun nach München ziehen. Auch wegen der ski-möglichkeiten des mountainbikings und des schönen wetters!"
+    navigation:
+        menu:
+            item1: "Ahoy!"
+            item2: "Munich"
+            item3: "Design"
+            item4: "Code"
+            item5: "Experience"
+    chapter1:
+        title: "<span class='first-line'>Entwickler von</span><span class='second-line'>mobile und web-apps</span>"
+        london:
+            city: "<span class='white-on-orange'>LONDON</span>"
+            line1: "My name is Bartek und ich arbeite zurzeit in"
+            line2: "als senior <span class='bold'>Developer & Designer,</span>"
+        munich:
+            city: "<span class='white-on-orange'>MÜNCHEN</span>"
+            line1: "in kurze werde ich nach"
+            line2: "ziehen wo ich einen Job suche."
+    chapter3:
+        mockup:
+            title: "First mockups!"
+            header2: "Every digital project begins on paper. Mockups are the lingua franca across all disciplines, and ensure the well-laid plans meet full fruition."
+            paragraph: "Hitting on a design theme that will equally served both classic and modern style takes several rounds of iteration. In the end, it allows the brand entities to shine within their respective sections without overpowering the project as a whole."
+        design:
+            title:
+            header2: "Next step design."
+            paragraph: "Wireframes, from a design perspective, are intentionally plain and nondescript. This allows the designer free reign to dream up the very best look and feel without feeling constrained by the wires’ prescriptions."
+    chapter4:
+        backend:
+            title: "Backend, where the magic begins!"
+            header2: "The technology is meant to pick up where design leaves off, delivering on the promises made by the wireframes. Often the unsung heroes, our technology and development teams ensure the vision is realized in the digital space. From the start, technology is top-of-mind as our ultimate delivery mechanism."
+            paragraph:
+        frontend:
+            title: "But you might ask 'what about the CSS'?"
+            header2: "CSS3 + media queries"
+            paragraph:
+    chapter5:
+        four-things: "Sicherlich suchen sie nach einem <span>talentierten developer</span> Jemandem der unwiderstehlich inhalte entwerfen kann und der eine beziehung mit ihren zielgruppe aufbauen wird. Sie suchen nach einem gerissenen genie, jemand der mir <span>analysieren und interieren mit erhebliche verbesserungen erreicht.</span> Alledings brauchen sie viel mehr als ein coder. Jemand der sich an ihr team anpasst und der versteht, dass <span>esthetik nicht oberflächlich ist</span>. Darum <span>ist erfahrung alles.</span>"
+        title: "I will use my experience to design yours."

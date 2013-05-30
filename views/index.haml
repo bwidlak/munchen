@@ -76,46 +76,36 @@
 												%span.white-on-orange=t(:'chapter1.title')
 
 								.row-fluid
-									.container-fluid.pagination-centered
-										.span6
-											%h2 
-												I'm Bartek, currently living in
+									.container-fluid
+										.span6.pagination-centered
+											%h2=t(:'chapter1.london.line1') 
 											%div
 												%img{ :src => '/images/img-london.png'}
-											%h2.city
-												%span.white-on-orange
-													LONDON
-											%h2
-												working as senior
-												%span.bold
-													developer & designer,
-
+											%h2.city=t(:'chapter1.london.city')
+											%h2=t(:'chapter1.london.line2')
 										.span6.pagination-centered
-											%h2
-												but I'm relocating to
+											%h2=t(:'chapter1.munich.line1')
 											%div
 												%img{ :src => '/images/img-munchen.png'}
-											%h2.city 
-												%span.white-on-orange
-													MÜNCHEN
-											%h2
-												I'm looking for job opportunity there.
+											%h2.city=t(:'chapter1.munich.city')
+											%h2=t(:'chapter1.munich.line2')
+
 					
 
 		%section#chapter2.turquoise.resize.position-middle
 			.container
 				.row
 					.span8.offset4.position
-						%h1= t(:'chapter2.title')
-						%h2= t(:'chapter2.header2')
+						%h1= t(:'chapter2.munich.title')
+						%h2= t(:'chapter2.munich.header2')
 
 		%section#chapter3.yellow
 			.container
 				.row
 					.span12
-						%h1 First mockups!
-						%h2 Every digital project begins on paper. Mockups are the lingua franca across all disciplines, and ensure the well-laid plans meet full fruition.
-						%p Hitting on a design theme that will equally served both classic and modern style takes several rounds of iteration. In the end, it allows the brand entities to shine within their respective sections without overpowering the project as a whole.
+						%h1=t(:'chapter3.mockup.title')
+						%h2=t(:'chapter3.mockup.header2')
+						%p=t(:'chapter3.mockup.paragraph')
 				.row
 
 					.span3
@@ -295,18 +285,7 @@
 				.row
 					.span12.adjust
 						.four-things
-							Of course, you’re looking for a
-							%span
-								talented developer,
-							someone who creates compelling content that connects with your target audience. You’re also looking for a savvy genius, someone who can
-							%span
-								analyse and iterate to improve.
-							But you need much more than a coder. You need someone who can become an extension of your team, someone who can understand that
-							%span
-								beauty is not skin deep.
-							This is why
-							%span
-								experience is everything.
+							=t(:'chapter5.four-things')
 				.row
 					.span12.pagination-centered
 						%img{ :src => '/images/face-x2.gif', :width => '116', :height => '116', :alt => 'Thats me!'}
@@ -314,7 +293,7 @@
 							That's me!
 				.row
 					.span12.adjust
-						%h1 I will use my experience to design yours.
+						%h1=t(:'chapter5.title')
 						%h2 So far I've helped organisations radically improve their web & mobile applications and create exciting new digital products. I combine a unique lean approach with knowledge of human behaviour and the principles of user-centred design.
 				.row
 					.span12

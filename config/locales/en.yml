@@ -8,6 +8,36 @@ en:
             item5: "Experience"
     chapter1:
         title: "<span class='first-line'>I design & build</span><span class='second-line'>web and mobile apps</span>"
+        london:
+            city: "<span class='white-on-orange'>LONDON</span>"
+            line1: "I`m Bartek, currently living in"
+            line2: "working as senior <span class='bold'>developer & designer,</span>"
+        munich:
+            city: "<span class='white-on-orange'>MUNICH</span>"
+            line1: "but I`m relocating to"
+            line2: "I`m looking for job opportunity there."
     chapter2:
-        title: "Why <span class='orange-on-turquoise'>Munich?</span>"
-        header2: "I moved to London led by the need of a new experience to build my career. While working here for 2.5 years as senior developer, on challenging projects for world leading companies I've decided to move back to central Europe. <br/><br/> Munich - the place that is closer to things that I love and I`m missing: skiing, mountain biking and good weather!"
+        munich:
+            title: "Why <span class='orange-on-turquoise'>Munich?</span>"
+            header2: "I moved to London led by the need of a new experience to build my career. While working here for 2.5 years as senior developer, on challenging projects for world leading companies I've decided to move back to central Europe. <br/><br/> Munich - the place that is closer to things that I love and I`m missing: skiing, mountain biking and good weather!"
+    chapter3:
+        mockup:
+            title: "First mockups!"
+            header2: "Every digital project begins on paper. Mockups are the lingua franca across all disciplines, and ensure the well-laid plans meet full fruition."
+            paragraph: "Hitting on a design theme that will equally served both classic and modern style takes several rounds of iteration. In the end, it allows the brand entities to shine within their respective sections without overpowering the project as a whole."
+        design:
+            title:
+            header2: "Next step design."
+            paragraph: "Wireframes, from a design perspective, are intentionally plain and nondescript. This allows the designer free reign to dream up the very best look and feel without feeling constrained by the wires’ prescriptions."
+    chapter4:
+        backend:
+            title: "Backend, where the magic begins!"
+            header2: "The technology is meant to pick up where design leaves off, delivering on the promises made by the wireframes. Often the unsung heroes, our technology and development teams ensure the vision is realized in the digital space. From the start, technology is top-of-mind as our ultimate delivery mechanism."
+            paragraph:
+        frontend:
+            title: "But you might ask 'what about the CSS'?"
+            header2: "CSS3 + media queries"
+            paragraph:
+    chapter5:
+        four-things: "Of course, you’re looking for a <span>talented developer,</span> someone who creates compelling content that connects with your target audience. You’re also looking for a savvy genius, someone who can <span>analyse and iterate to improve.</span> But you need much more than a coder. You need someone who can become an extension of your team, someone who can understand that <span>beauty is not skin deep.</span> This is why <span>experience is everything.</span>"
+        title: 
