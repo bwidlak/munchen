@@ -288,6 +288,28 @@ p {
 	font-weight: bold;
 }
 
+.editor .def-method {
+	font-weight: bold;
+	color: #9ee22c;
+}
+
+.editor .def span, .editor .def-method span {
+	color: #f9296f;
+}
+
+.editor .def-method i {
+	color: #ff9000
+}
+
+.editor .class {
+	color: #67d9ef;
+	font-style: italic;
+}
+
+.editor .symbol {
+	color: #ae81ff;
+}
+
 .editor .dollar_value {
 	color: #ff9000;
 	font-style: italic;

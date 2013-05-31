@@ -14,7 +14,7 @@ de:
         title: "<span class='first-line'>Entwickler von</span><span class='second-line'>mobile und web-apps</span>"
         london:
             city: "<span class='white-on-orange'>LONDON</span>"
-            line1: "My name is Bartek und ich arbeite zurzeit in"
+            line1: "Mein Name ist Bartek und ich arbeite zurzeit in"
             line2: "als senior <span class='bold'>Developer & Designer,</span>"
         munich:
             city: "<span class='white-on-orange'>MÜNCHEN</span>"

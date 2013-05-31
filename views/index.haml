@@ -156,21 +156,384 @@
 					.span12
 						%h1 Backend, where the magic begins!
 						%h2 The technology is meant to pick up where design leaves off, delivering on the promises made by the wireframes. Often the unsung heroes, our technology and development teams ensure the vision is realized in the digital space. From the start, technology is top-of-mind as our ultimate delivery mechanism.
+
+						Specilize in :
+						%ul
+							%li
+						 Ruby on Rails development
+
 					.span10.offset1							
 						.editor
 							.top_bar
-								_button.sass
+								subscription.rb
 							.content
 								.tab
 									:erb
-										require 'uri'<br/>
+										<span class="def"><span>class</span> SubscriptionNotRemovableException < StandardError<br/>
+										end</span></br>
+										<br/>
 
-										class User < ActiveRecord::Base<br/>
+										<span class="def"><span>class</span> Subscription < ActiveRecord::Base</span><br/>
+										<br/>
 									.tab
 										:erb
-											named_scope :not_deleted, :conditions => [ "users.deleted_at is null" ]<br/>
-											enum_attr :title, %w(Mr Mrs Miss Ms Dr Prof)<br/>
-											include Authentication<br/>
+											named_scope <span class="symbol">:active</span>, <span class="symbol">:conditions</span> => [ "(start_date <= current_date) and (end_date >= current_date)" ]<br/>
+
+											belongs_to <span class="symbol">:subscription_type</span><br/>
+											belongs_to <span class="symbol">:subscriber</span>, <span class="symbol">:polymorphic</span> => <span class="symbol">true</span><br/>
+
+											has_many <span class="symbol">:transactions</span>, <span class="symbol">:as</span> => <span class="symbol">:transactable</span><br/>
+
+											cattr_reader <span class="symbol">:per_page</span><br/>
+											@@per_page = 10<br/>
+
+											restful_common_permission_checks<br/>
+											<br/>
+
+											validates_presence_of   <span class="symbol">:start_date</span></br>
+											validates_presence_of   <span class="symbol">:end_date</span><br/>
+											validates_presence_of   <span class="symbol">:subscription_type_id</span><br/>
+											validates_presence_of   <span class="symbol">:subscriber</span><br/>
+											validates_numericality_of <span class="symbol">:quantity_purchased</span>, <span class="symbol">:on</span> => <span class="symbol">:save</span>, <span class="symbol">:only_integer</span> => <span class="symbol">true</span>, <span class="symbol">:greater_than</span> => 0<br/>
+											validates_numericality_of <span class="symbol">:quantity_purchased</span>, <span class="symbol">:on</span> => <span class="symbol">:create</span>, <span class="symbol">:only_integer</span> => <span class="symbol">true</span>, <span class="symbol">:greater_than</span> => 0<br/>
+											validates_numericality_of <span class="symbol">:quantity_purchased</span>, <span class="symbol">:on</span> => <span class="symbol">:update</span>, <span class="symbol">:only_integer</span> => <span class="symbol">true</span>, <span class="symbol">:greater_than</span> => 0<br/>
+											<br/>
+
+											attr_reader <span class="symbol">:activation_errors</span><br/>
+
+											attr_accessible <span class="symbol">:subscription_type</span>, <span class="symbol">:subscriber_type</span>, <span class="symbol">:start_date</span>, <span class="symbol">:end_date</span>, <span class="symbol">:subscriber</span>, <span class="symbol">:subscription_type_id</span>, <span class="symbol">:quantity_purchased</span>, <span class="symbol">:activation_code</span>, <span class="symbol">:subscriber_id</span></br>
+
+											before_destroy <span class="symbol">:check_removable?</span><br/>
+											<br/>
+											<span class="def-method"><span>def</span> check_removable?</span><br/>
+										.tab
+											:erb
+												res = <span class="symbol">false</span><br/>
+												
+												if self.subscriber_type == 'User'
+											.tab
+												:erb												
+													res = <span class="symbol">true</span>
+											:erb
+												else
+											.tab
+												:erb
+													if is_empty?
+												.tab
+													:erb
+														res = <span class="symbol">true</span>
+												:erb
+													else
+												.tab
+													:erb
+														errors.add_to_base "Cannot delete subscription. This subscription is referenced by active users. Please remove the users subscriptions by removing each user from the group this subscription is applied to first"
+												:erb
+													end
+											:erb
+												end<br/>
+
+												raise SubscriptionNotRemovableException unless res
+												return res
+										:erb
+											end<br/>
+											<br/>
+  
+											<span class="def-method"><span>def</span> self.generate_activation_code</span>
+										.tab
+											:erb
+												chars = ('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a<br/>
+												(0...10).collect { chars[<span class="class">Kernel</span>.rand(chars.length)] }.join
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> subscription_type_with_end_date=(<i>new_subscription_type</i>)</span>
+										.tab
+											:erb
+												if self.start_date.nil?
+											.tab
+												:erb
+													self.start_date = <span class="class">Date</span>.today
+											:erb
+												end<br/>
+
+												if self.end_date.blank?
+											.teb
+												:erb
+													self.end_date = self.start_date + new_subscription_type.duration.months
+											:erb
+												end<br/>
+												self.subscription_type_without_end_date = new_subscription_type
+										:erb
+											end<br/>
+											alias_method_chain <span class="symbol">:subscription_type=</span>, <span class="symbol">:end_date</span><br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> subscription_type_id=(<i>new_subscription_type_id</i>)</span>
+										.tab
+											:erb
+												write_attribute(<span class="symbol">:subscription_type_id</span>, new_subscription_type_id)
+										:erb
+											end<br/>
+											<br/>
+ 
+											<span class="def-method"><span>def</span> subscription_type_id_with_end_date=(<i>new_subscription_type_id</i>)</span>
+										.tab
+											:erb
+												self.start_date = <span class="class">Date</span>.today if self.start_date.nil?</br>
+
+												end<br/>
+												<br/>
+
+												if self.end_date.blank?
+											.tab
+												:erb
+													self.end_date = self.start_date + <span class="class">SubscriptionType</span>.find(new_subscription_type_id).duration.months
+											:erb
+												end<br/>
+												self.subscription_type_id_without_end_date = new_subscription_type_id
+										:erb
+											end<br/>
+											alias_method_chain :subscription_type_id=, :end_date<br/>
+											<br/>
+  
+											<span class="def-method"><span>def</span> start_date=(<i>new_start_date</i>)</span>
+										.tab
+											:erb
+												write_attribute(<span class="symbol">:start_date</span>, new_start_date)
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> start_date_with_end_date=(<i>new_start_date</i>)</span>
+										.tab
+											:erb
+												unless self.subscription_type.blank?
+											.tab
+												:erb
+													if self.end_date.blank?
+												.tab
+													:erb
+														self.end_date = new_start_date + self.subscription_type.duration.months
+												:erb
+													end
+											:erb
+												end<br/>
+												self.start_date_without_end_date = new_start_date
+										:erb
+											end<br/>
+											alias_method_chain <span class="symbol">:start_date=</span>, :end_date<br/>
+											<br/>
+											<span class="def-method"><span>def</span> end_date=(<i>new_end_date</i>)</span>
+										.tab
+											:erb
+												if self.start_date.nil? 
+											.tab
+												:erb
+													self.start_date = <span class="class">Date</span>.today
+											:erb
+												end<br/>
+												<br/>
+												new_value = new_end_date.instance_of?(Date) ? new_end_date : <span class="class">Date</span>.parse(new_end_date.to_s)<br/>
+												if new_value.to_date < self.start_date.to_date<br/>
+											.tab
+												:erb
+													write_attribute(:end_date, start_date.to_date)
+											:erb
+												else
+											.tab
+												:erb
+													write_attribute(<span class="symbol">:end_date</span>, new_end_date.to_date)
+											:erb
+												end
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> subscriber_with_activation_code=(<i>new_subscriber</i>)</span>
+										.tab
+											:erb
+												if new_subscriber.class.name == "User"
+											.tab
+												:erb
+													self.quantity_purchased = 1
+											:erb
+												elsif new_subscriber.class.name == "Group"
+											.tab
+												:erb
+													self.activation_code = <span class="class">Subscription</span>.generate_activation_code
+											:erb
+												end<br/>
+												self.subscriber_without_activation_code = new_subscriber
+										:erb
+											end<br/>
+											alias_method_chain <span class="symbol">:subscriber=</span>, <span class="symbol">:activation_code</span><br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> self.find_group_subscription_for_activation_code(<i>code</i>)</span>
+										.tab
+											:erb
+												subs = <span class="class">Subscription</span>.find_all_by_activation_code(code)<br/>
+												subs.select{|s| s.subscriber_type = "Group"}<br/>
+												subs.first
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> self.find_group_for_subscription(<i>subscription</i>)</span>
+										.tab
+											:erb
+												if subscription.blank? or subscription.activation_code.blank?
+											.tab
+												:erb
+													return nil
+											:erb
+												end<br/>
+												return <span class="class">Subscription</span>.find_group_for_activation_code(subscription.activation_code)
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> self.find_group_name_for_subscription(<i>subscription</i>)</span>
+										.tab
+											:erb
+												group = find_group_for_subscription(subscription)<br/>
+												return (group.blank? ? "" : group.client_group_name)
+										:erb
+											end<br/>
+											<br/>
+
+
+											<span class="def-method"><span>def</span> self.find_all_by_subscriber(<i>subscriber</i>)</span>
+										.tab
+											:erb
+												return subscriber.subscriptions
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> self.find_current_by_subscriber(<i>subscriber</i>)</span>
+										.tab
+											:erb
+												subscription = <span class="class">Subscription</span>.find_all_by_subscriber(subscriber).select{|s| s.enabled? && s.active?}.first
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> self.find_group_for_activation_code(<i>code</i>)</span>
+										.tab
+											:erb
+												<span class="class">Subscription</span>.find_group_subscription_for_activation_code(code).subscriber
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> can_add_user?</span>
+										.tab
+											:erb
+												result = self.enabled?<br/>
+												result &&= self.active?<br/>
+												result &&= self.has_available_places?</br>
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> has_available_places?</span>
+										.tab
+											:erb
+												@activation_errors ||= []<br/>
+												total_used = <span class="class">Subscription</span>.find_all_by_activation_code(self.activation_code).select{|s| s.enabled}.length - 1<br/>
+												result = total_used < self.quantity_purchased<br/>
+												<br/>
+												unless result
+											.tab
+												:erb
+													@activation_errors << "There are no available places - Subscription is full"
+											:erb
+												end<br/>
+												return result
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> is_empty?</span>
+										.tab
+											:erb
+												total_used = <span class="class">Subscription</span>.find_all_by_activation_code(self.activation_code).select{|s| s.enabled}.length - 1<br/>
+												return total_used == 0 ? <span class="symbol">true</span> : <span class="symbol">false</span>
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> active?</span>
+										.tab
+											:erb
+												result = <span class="symbol">true</span><br/>
+												@activation_errors ||= []<br/>
+												if self.start_date > <span class="class">Date</span>.today</br>
+													@activation_errors << "Subscription is not enabled until #{self.start_date}"
+											.tab
+												:erb
+													result = <span class="symbol">false</span>
+											:erb
+												elsif self.end_date < <span class="class">Date</span>.today
+											.tab
+												:erb
+													@activation_errors << "Subscription expired on #{self.end_date}"<br/>
+													result = <span class="symbol">false</span>
+											:erb
+												end<br/>
+												return result
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> enabled?</span>
+										.tab
+											:erb
+												@activation_errors ||= []<br/>
+												unless enabled
+											.tab
+												:erb
+													@activation_errors << "Subscription is disabled"
+											:erb
+												end<br/>
+												return enabled
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> is_active_and_enabled?</span>
+										.tab
+											:erb
+												return (self.active? and self.enabled?)
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> viewable_summaries_for_themes(<i>limit</i>, <i>themes</i>, <i>opts={}</i>)</span>
+										.tab
+											:erb
+												return self.subscription_type.viewable_summaries_for_themes(limit, themes, opts)
+										:erb
+											end<br/>
+											<br/>
+
+											<span class="def-method"><span>def</span> viewable_summaries_filtered(<i>limit</i>, <i>opts={}</i>)</span>
+										.tab
+											:erb
+												return self.subscription_type.viewable_summaries_filtered(limit, opts)
+										:erb
+											end
+									:erb
+										end
+
+
+
+
+
+
+
 
 				.row
 					.span12
@@ -257,7 +620,7 @@
 												:erb
 													<span class="attribute">color</span>: <span class="dollar_value">$color_start</span><br/>
 										:erb
-											@if <span class="dollar_value">$disabled</span> == true
+											@if <span class="dollar_value">$disabled</span> == <span class="symbol">true</span>
 										.tab
 											:erb
 												<span class="attribute">border</span>:<br/>
