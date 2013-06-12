@@ -262,15 +262,16 @@ p {
 
 .dark-gray { background-color: #a9a496; }
 
-.dark-gray .four-things {
+.pre-text {
 	line-height: 1.3em;
 	letter-spacing: -1px;
-	font-size: 48px;
+	font-size: 42px;
 	font-family: 'LatoLight';
 	text-rendering: optimizelegibility;
+	margin: 10px 0;
 }
 
-.dark-gray .four-things span {
+.pre-text span {
 	font-family: 'MerriweatherRegular';
 	font-weight: bold;
 }
@@ -319,6 +320,12 @@ p {
 	color: #17def2;
 }
 
+
+.skills ul li {
+	font-family: 'LatoLight';
+	font-size: 30px;
+	line-height: 1.3em;
+}
 /* font sizes along the media size */
 
 /* Large desktop */
