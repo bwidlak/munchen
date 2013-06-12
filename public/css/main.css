@@ -144,6 +144,10 @@ nav {
 	text-align: center;
 }
 
+.skills ul {
+	margin: 0px;
+}
+
 .skills ul li {
 	display: block;
 	border-bottom: 1px solid #b9b9b9;
